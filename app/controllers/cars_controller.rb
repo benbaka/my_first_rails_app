@@ -1,5 +1,7 @@
+require 'byebug'
+
 class CarsController < ApplicationController
-  before_action :set_car, only: %i[ show edit update destroy ]
+  before_action :set_car, only: %i[ show edit update destroy sell ]
 
   # GET /cars or /cars.json
   def index
@@ -54,6 +56,15 @@ class CarsController < ApplicationController
       format.html { redirect_to cars_url, notice: "Car was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+
+  def sell
+
+    #byebug
+    @car.sold = true
+    @car.save
+    redirect_to cars_url, notice: "The car has been marked as sold"
   end
 
   private
