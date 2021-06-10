@@ -24,7 +24,6 @@
           <td><%= car.make %>
             <%if car.sold %>
               <i style="color: darkgreen" class="fas fa-check-circle"></i>
-            <% else %>
             <% end %>
 
           </td>
@@ -33,9 +32,22 @@
           <td><%= link_to 'Show', car %></td>
           <td><%= link_to 'Edit', edit_car_path(car) %></td>
           <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'Mark as Sold', mark_as_sold_path(car) %></td>
+
+          <% if car.sold %>
+            <td><%= link_to 'Mark as Unsold', mark_as_unsold_path(car),
+                            :class => 'btn btn-primary btn-sm'
+
+            %></td>
+          <% else %>
+            <td><%= link_to 'Mark as Sold', mark_as_sold_path(car),
+                            :class => 'btn btn-primary btn-sm'
+
+
+            %></td>
+
+        <% end %>
         </tr>
-      <% end %>
+        <% end %>
       </tbody>
     </table>
 

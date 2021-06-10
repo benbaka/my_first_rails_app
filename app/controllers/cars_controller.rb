@@ -1,7 +1,7 @@
 require 'byebug'
 
 class CarsController < ApplicationController
-  before_action :set_car, only: %i[ show edit update destroy sell ]
+  before_action :set_car, only: %i[ show edit update destroy sell unsell]
 
   # GET /cars or /cars.json
   def index
@@ -60,13 +60,16 @@ class CarsController < ApplicationController
 
 
   def sell
-
-    #byebug
     @car.sold = true
     @car.save
     redirect_to cars_url, notice: "The car has been marked as sold"
   end
 
+  def unsell
+    @car.sold = false
+    @car.save
+    redirect_to cars_url, notice: "The is now on the mark again."
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
