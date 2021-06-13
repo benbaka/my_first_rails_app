@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_171048) do
+ActiveRecord::Schema.define(version: 2021_06_13_062007) do
+
+  create_table "bids", force: :cascade do |t|
+    t.decimal "amount"
+    t.integer "car_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_id"], name: "index_bids_on_car_id"
+  end
 
   create_table "cars", force: :cascade do |t|
     t.string "make"
@@ -21,4 +29,12 @@ ActiveRecord::Schema.define(version: 2021_06_09_171048) do
     t.boolean "sold"
   end
 
+  create_table "cats", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "bids", "cars"
 end
