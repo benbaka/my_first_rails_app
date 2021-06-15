@@ -42,4 +42,12 @@ Rails.application.routes.draw do
   #get  'cars/:id/bids', to: 'bids#index', as: 'car_bids'
    post 'cars/:id/bids', to: 'bids#create'#, as: 'car_bids'
   # created by rails
+  #
+  #
+  # API routes
+  namespace :api do
+    namespace :v1 do
+      resources :cars
+    end
+  end
 end
