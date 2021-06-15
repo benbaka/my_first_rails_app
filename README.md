@@ -21,4 +21,15 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* 
+
+Useful Tips 
+==============
+
+- git push heroku main
+- heroku run rails db:migrate
+- git push heroku main
+- git push heroku main
+- heroku run rails db:migrate
+- heroku run rails server
+- heroku restart
