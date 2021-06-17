@@ -33,3 +33,8 @@ Useful Tips
 - heroku run rails db:migrate
 - heroku run rails server
 - heroku restart
+
+
+TODO:
+1. Don't allow negative bids
+2. 
