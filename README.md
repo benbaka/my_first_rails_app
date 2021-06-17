@@ -36,5 +36,6 @@ Useful Tips
 
 
 TODO:
-1. Don't allow negative bids
-2. 
+1. Don't allow negative bids - [&#9745;]
+2. A car should belong to a category - [&#9744;]
+3. Implement likes 
