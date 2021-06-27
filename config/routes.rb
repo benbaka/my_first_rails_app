@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :libraries
+  resources :books
   root 'cars#index'
   #resources :cars do
   #  resources :bids, only: [:new, :create, :index, :edit, :update]
@@ -6,6 +8,11 @@ Rails.application.routes.draw do
   #resources :cars
   #
   #
+  #
+  resources :books do
+    resources :libraries, :controller=> 'libraries_books', only: [:new, :create, :index, :destroy]
+
+  end
   get  'cars', to: 'cars#index'
   post 'cars', to: 'cars#create'
   get  'cars/new', to: 'cars#new', as: 'new_car'
@@ -24,6 +31,7 @@ Rails.application.routes.draw do
     member do
       get 'preview'
     end
+    # /courses/:id/preview
 
     collection do
       get 'upcoming'

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</p>
+
+<%# @book.files.each do |file| %>
+  <%#= link_to file.filename, rails_blob_path(file, desposition: :inline) %>
+<%# end %>
+
+<img width="100" height="100" src=<%= rails_blob_path(@book.cover, desposition: :inline)  %> />
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
